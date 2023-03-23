@@ -10,7 +10,7 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		setQuoteText(encodeURI(`"${content}" —${author}`));
+		setQuoteText(encodeURI(`"${content}"\n\t—${author}`));
 	}, [content, author]);
 
 	const handleOnClick = () => {
@@ -27,8 +27,10 @@ function App() {
 					&mdash; {author}
 				</figcaption>
 			</figure>
-			<button id="new-quote" onClick={handleOnClick}>Get new quote</button>
-			<a href={`https://twitter.com/intent/tweet/?text=${quoteText}`} target="_blank" rel="noreferrer">Tweet this!</a>
+			<div className="controls">
+				<button id="new-quote" onClick={handleOnClick}>Get new quote</button>
+				<a href={`https://twitter.com/intent/tweet/?text=${quoteText}`} target="_blank" rel="noreferrer">Tweet this!</a>
+			</div>
     </div>
   );
 }
