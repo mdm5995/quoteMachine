@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { getQuote } from './quoteSlice';
+import { useState, useEffect } from 'react';
 
 function App() {
+
+	const {content, author} = useSelector((state) => state);
+	const [quoteText, setQuoteText] = useState(`"${content}" —${author}`);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		setQuoteText(encodeURI(`"${content}" —${author}`));
+	}, [content, author]);
+
+	const handleOnClick = () => {
+		dispatch(getQuote);
+	}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+			<figure id="quote-box">
+				<blockquote id="text">
+					"{content}"
+				</blockquote>
+				<figcaption id="author">
+					&mdash; {author}
+				</figcaption>
+			</figure>
+			<button id="new-quote" onClick={handleOnClick}>Get new quote</button>
+			<a href={`https://twitter.com/intent/tweet/?text=${quoteText}`} target="_blank" rel="noreferrer">Tweet this!</a>
     </div>
   );
 }
