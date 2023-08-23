@@ -19,14 +19,6 @@ code {
   margin-top: 5rem;
   max-width: 535px;
   width: 100%;
-}
-
-.header {
-	margin-bottom: 0.5rem;
-	color: #222;
-}
-
-.quote-container {
   border: 1px solid #222;
   box-sizing: border-box;
   padding: 1rem;
@@ -35,18 +27,26 @@ code {
 	filter: drop-shadow(0 8px 0.5rem #ccc);
 }
 
+.header {
+	margin-bottom: 0.5rem;
+	color: #222;
+}
+
 #quote-box {
   margin: 1rem 2rem 0.5rem;
   line-height: 1.4rem;
+	text-align: center;
 }
 
 figcaption {
 	text-align: right;
 	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 #text {
   margin: 0;
+	text-align: left;
 }
 
 .controls {
