@@ -17,24 +17,27 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <figure id="quote-box">
-        <blockquote id="text">"{content}"</blockquote>
-        <figcaption id="author">&mdash; {author}</figcaption>
+		<>
+			<div className="App">
+				<h1 class="header">Quote Machine</h1>
+				<figure id="quote-box">
+					<blockquote id="text">"{content}"</blockquote>
+					<figcaption id="author">&mdash; {author}</figcaption>
 
-        <button id="new-quote" onClick={handleOnClick}>
-          Get new quote
-        </button>
-        <a
-          id="tweet-quote"
-          href={`https://twitter.com/intent/tweet/?text=${quoteText}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Tweet this!
-        </a>
-      </figure>
-    </div>
+					<button id="new-quote" onClick={handleOnClick}>
+						Get new quote
+					</button>
+					<a
+						id="tweet-quote"
+						href={`https://twitter.com/intent/tweet/?text=${quoteText}`}
+						target="_blank"
+						rel="noreferrer"
+					>
+						Tweet this!
+					</a>
+				</figure>
+			</div>
+		</>
   );
 }
 
